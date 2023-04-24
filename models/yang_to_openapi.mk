@@ -56,7 +56,7 @@ $(YANGAPI_DIR)/.done:  $(YANG_MOD_FILES) $(YANG_COMMON_FILES) | $(OPENAPI_GEN_PR
 		--outdir $(@D) \
 		--plugindir $(PYANG_PLUGIN_DIR) \
 		-p $(YANGDIR_COMMON):$(YANGDIR) \
-		$(YANG_MOD_FILES)
+		$(YANG_MOD_FILES) $(YANG_COMMON_FILES)
 	@echo "+++++ Generation of  YAML files for Yang modules completed +++++"
 	touch $@
 
@@ -70,7 +70,7 @@ $(YANGAPI_DIR)/.sonic_done: $(SONIC_YANG_MOD_FILES) $(SONIC_YANG_COMMON_FILES) |
 		--outdir $(@D) \
 		--plugindir $(PYANG_PLUGIN_DIR) \
 		-p $(YANGDIR_SONIC_COMMON):$(YANGDIR_SONIC):$(YANGDIR_COMMON) \
-		$(SONIC_YANG_MOD_FILES)
+		$(SONIC_YANG_MOD_FILES) $(SONIC_YANG_COMMON_FILES)
 	@echo "+++++ Generation of  YAML files for Sonic Yang modules completed +++++"
 	touch $@
 
